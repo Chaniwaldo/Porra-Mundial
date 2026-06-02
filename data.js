@@ -86,12 +86,12 @@ const INITIAL_MATCHES = [
   { id: 'gJ6', group: 'J', matchday: 3, date: '2026-06-28', time: '04:00', teamA: 'Jordania', teamB: 'Argentina', scoreA: null, scoreB: null },
 
   // Grupo K
-  { id: 'gK1', group: 'K', matchday: 1, date: '2026-06-17', time: '19:00', teamA: 'Portugal', teamB: 'Ganador del Playoff Intercontinental 1', scoreA: null, scoreB: null },
+  { id: 'gK1', group: 'K', matchday: 1, date: '2026-06-17', time: '19:00', teamA: 'Portugal', teamB: 'R.D. Congo', scoreA: null, scoreB: null },
   { id: 'gK2', group: 'K', matchday: 1, date: '2026-06-18', time: '04:00', teamA: 'Uzbekistán', teamB: 'Colombia', scoreA: null, scoreB: null },
   { id: 'gK3', group: 'K', matchday: 2, date: '2026-06-23', time: '19:00', teamA: 'Portugal', teamB: 'Uzbekistán', scoreA: null, scoreB: null },
-  { id: 'gK4', group: 'K', matchday: 2, date: '2026-06-24', time: '04:00', teamA: 'Colombia', teamB: 'Ganador del Playoff Intercontinental 1', scoreA: null, scoreB: null },
+  { id: 'gK4', group: 'K', matchday: 2, date: '2026-06-24', time: '04:00', teamA: 'Colombia', teamB: 'R.D. Congo', scoreA: null, scoreB: null },
   { id: 'gK5', group: 'K', matchday: 3, date: '2026-06-28', time: '01:30', teamA: 'Colombia', teamB: 'Portugal', scoreA: null, scoreB: null },
-  { id: 'gK6', group: 'K', matchday: 3, date: '2026-06-28', time: '01:30', teamA: 'Ganador del Playoff Intercontinental 1', teamB: 'Uzbekistán', scoreA: null, scoreB: null },
+  { id: 'gK6', group: 'K', matchday: 3, date: '2026-06-28', time: '01:30', teamA: 'R.D. Congo', teamB: 'Uzbekistán', scoreA: null, scoreB: null },
 
   // Grupo L
   { id: 'gL1', group: 'L', matchday: 1, date: '2026-06-17', time: '22:00', teamA: 'Inglaterra', teamB: 'Croacia', scoreA: null, scoreB: null },
