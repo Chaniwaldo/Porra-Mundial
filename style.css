@@ -275,3 +275,12 @@ th {
   font-size: 0.8rem;
   color: #6b7280;
 }
+/* ── Colores pronósticos enviados ─────────────────────────── */
+tr.pred-hit         { background: #d1fae5; }
+tr.pred-hit-partial { background: #fef9c3; }
+tr.pred-miss        { background: #fee2e2; }
+
+.badge-hit          { background: #16a34a; color: #fff; padding: 2px 8px; border-radius: 9999px; font-size: .75rem; }
+.badge-hit-partial  { background: #ca8a04; color: #fff; padding: 2px 8px; border-radius: 9999px; font-size: .75rem; }
+.badge-miss         { background: #dc2626; color: #fff; padding: 2px 8px; border-radius: 9999px; font-size: .75rem; }
+.badge-pending      { background: #94a3b8; color: #fff; padding: 2px 8px; border-radius: 9999px; font-size: .75rem; }
