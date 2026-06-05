@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Porra Mundial 2026</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-ball" aria-hidden="true"></span>
+      <h1>Porra Mundial 2026</h1>
+    </div>
+    <div class="rules">5 pts exacto · 2 pts signo · Jornada 0 con bonus</div>
+  </header>
+
+  <main class="page">
+    <div id="db-status" class="notice" style="display:none;"></div>
+
+    <div class="layout">
+      <section class="card">
+        <h2>Pronósticos por día</h2>
+        <p class="muted">Selecciona un día (o la jornada 0) para pronosticar. Los bonus de jugadores admiten aciertos aproximados.</p>
+        <form id="prediction-form">
+          <div class="field">
+            <label for="player-name">Nombre participante</label>
+            <input type="text" id="player-name" required />
+          </div>
+
+          <div class="field" style="max-width:320px;">
+            <label for="day-select">Seleccionar día o jornada</label>
+            <select id="day-select" required>
+              <option value="">Cargando días…</option>
+            </select>
+          </div>
+
+          <div id="next-matches-container"><p class="small">Selecciona un día.</p></div>
+          <div class="btn-row">
+            <button type="submit" class="btn primary" id="submit-btn">Guardar pronósticos</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Panel administrador</h2>
+        <p class="muted">Gestiona días de partidos y los bonus oficiales de la jornada 0.</p>
+
+        <details class="accordion" open>
+          <summary>1. Añadir partido</summary>
+          <form id="add-match-form" class="stack">
+            <div class="grid-2">
+              <div class="field">
+                <label for="match-date">Fecha</label>
+                <input type="date" id="match-date" required />
+              </div>
+              <div class="field">
+                <label for="match-time">Hora (Madrid)</label>
+                <input type="time" id="match-time" required />
+              </div>
+            </div>
+            <div class="grid-2">
+              <div class="field">
+                <label for="team-a">Local</label>
+                <input type="text" id="team-a" required />
+              </div>
+              <div class="field">
+                <label for="team-b">Visitante</label>
+                <input type="text" id="team-b" required />
+              </div>
+            </div>
+            <div class="grid-2">
+              <div class="field">
+                <label for="matchday-admin">Jornada</label>
+                <input type="number" id="matchday-admin" min="0" placeholder="0,1,2,3..." />
+              </div>
+              <div class="field">
+                <label for="round-admin">Ronda</label>
+                <select id="round-admin">
+                  <option value="group">Fase de grupos</option>
+                  <option value="r32">Dieciseisavos (32)</option>
+                  <option value="r16">Octavos (16)</option>
+                  <option value="qf">Cuartos (8)</option>
+                  <option value="sf">Semifinales (4)</option>
+                  <option value="third">Tercer puesto</option>
+                  <option value="final">Final</option>
+                </select>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button type="submit" class="btn">Añadir partido</button>
+            </div>
+          </form>
+        </details>
+
+        <details class="accordion" open>
+          <summary>2. Resultados oficiales</summary>
+          <p class="muted small">Rellena al terminar cada partido.</p>
+          <div id="official-results-container"><p class="small">Cargando…</p></div>
+        </details>
+
+        <details class="accordion">
+          <summary>3. Bonus jornada 0</summary>
+          <p class="muted small">Introduce las respuestas oficiales para puntuar los bonus. Los aciertos se consideran "aproximados" si contienen una cadena de al menos 4 letras iguales.</p>
+          <form id="bonus-admin-form" class="stack">
+            <div class="field"><label for="official-gk">Mejor portero</label><input type="text" id="official-gk" /></div>
+            <div class="field"><label for="official-topteam">Selección más goleadora</label><input type="text" id="official-topteam" /></div>
+            <div class="field">
+              <label>Mejor once (sin portero)</label>
+              <p class="small muted">Introduce 10 jugadores de campo. Se darán 3 puntos por cada coincidencia aproximada.</p>
+            </div>
+            <div class="grid-2">
+              <div class="field"><input type="text" id="official-best11-1" placeholder="Jugador 1" /></div>
+              <div class="field"><input type="text" id="official-best11-2" placeholder="Jugador 2" /></div>
+            </div>
+            <div class="grid-2">
+              <div class="field"><input type="text" id="official-best11-3" placeholder="Jugador 3" /></div>
+              <div class="field"><input type="text" id="official-best11-4" placeholder="Jugador 4" /></div>
+            </div>
+            <div class="grid-2">
+              <div class="field"><input type="text" id="official-best11-5" placeholder="Jugador 5" /></div>
+              <div class="field"><input type="text" id="official-best11-6" placeholder="Jugador 6" /></div>
+            </div>
+            <div class="grid-2">
+              <div class="field"><input type="text" id="official-best11-7" placeholder="Jugador 7" /></div>
+              <div class="field"><input type="text" id="official-best11-8" placeholder="Jugador 8" /></div>
+            </div>
+            <div class="grid-2">
+              <div class="field"><input type="text" id="official-best11-9" placeholder="Jugador 9" /></div>
+              <div class="field"><input type="text" id="official-best11-10" placeholder="Jugador 10" /></div>
+            </div>
+            <div class="btn-row"><button type="submit" class="btn">Guardar bonus oficial</button></div>
+          </form>
+        </details>
+      </section>
+    </div>
+
+    <section class="card card-wide">
+      <h2>Clasificación general</h2>
+      <p class="muted">5 pts exacto · 2 pts signo · Jornada 0: mejor portero 5, selección más goleadora 5, mejor once 3 por jugador acertado.</p>
+      <div id="standings-container"><p class="small">Cargando…</p></div>
+    </section>
+
+    <section class="card card-wide" style="margin-top:1.25rem;">
+      <h2>Ver pronósticos enviados</h2>
+      <p class="muted">Filtra por participante para ver sus apuestas.</p>
+      <div class="field" style="max-width:280px;">
+        <label for="filter-player">Nombre</label>
+        <input type="text" id="filter-player" placeholder="Escribe un nombre…" />
+      </div>
+      <div id="my-predictions-container"></div>
+    </section>
+  </main>
+
+  <footer class="footer">Porra Mundial 2026 · Datos guardados en Firebase Firestore</footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
